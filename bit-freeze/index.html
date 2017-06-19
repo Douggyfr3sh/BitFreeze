@@ -2,7 +2,9 @@
 <html>
   <head>
     <meta charset="UTF-8">
-    <title>Hello World!</title>
+    <!-- Include bootstrap CSS -->
+    <link href="node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <title>BitFreeze</title>
   </head>
   <body>
     <h1>Hello World!</h1>
@@ -16,11 +18,16 @@
   </body>
 
 
-  <!-- Require other files to be included -->
+  <!-- Require jQuery with specific path for Electron -->
   <script>
-  //Must load jQuery in this special manner for use with Electron:
-    window.$ = window.jQuery = require('jquery');
-    require('bootstrap')
+    window.$ = window.jQuery = require('./node_modules/jquery/dist/jquery.min.js');
+  </script>
+
+  <!-- Require bootstrap with specific path for electron -->
+  <script src="./node_modules/bootstrap/dist/js/bootstrap.min.js">
+  </script>
+  <!-- Require other developer-built functionality js files -->
+  <script>
     require('./renderer.js')
     require('./lib/walletGenerator.js')
   </script>
