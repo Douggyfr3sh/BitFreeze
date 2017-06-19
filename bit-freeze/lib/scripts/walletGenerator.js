@@ -6,7 +6,6 @@ $(document).ready( () => {
   console.log('document ready!');
 
   $('.btc-btn-generate').on('click', (e) => {
-    //doesnt work yet- next step add bootstrap and refactor btn HTML.
     console.log('button wuz click\'d');
     let newWallet = BTC.ECPair.makeRandom();
     let public = newWallet.getAddress();

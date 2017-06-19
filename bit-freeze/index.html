@@ -2,8 +2,17 @@
 <html>
   <head>
     <meta charset="UTF-8">
+    <!-- Include angular CSS -->
+      <link rel="stylesheet" type="text/css" href="./node_modules/angular/angular-csp.css">
     <!-- Include bootstrap CSS -->
     <link href="node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Include Angular JS files -->
+    <script type="text/javascript" src="./node_modules/angular/angular.min.js"></script>
+
+    <!-- Index.js handles Angular bootstrapping -->
+    <script type="text/javascript" src="lib/scripts/index.js"></script>
+
     <title>BitFreeze</title>
   </head>
   <body>
@@ -56,6 +65,6 @@
   <!-- Require other developer-built functionality js files -->
   <script>
     require('./renderer.js')
-    require('./lib/walletGenerator.js')
+    require('./lib/scripts/walletGenerator.js')
   </script>
 </html>
