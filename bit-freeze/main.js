@@ -8,13 +8,19 @@ const path = require('path')
 const url = require('url')
 const bitcoin = require('bitcoinjs-lib')
 
+
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
 let mainWindow
 
 function createWindow () {
   // Create the browser window.
-  mainWindow = new BrowserWindow({width: 800, height: 600})
+  mainWindow = new BrowserWindow({
+    width: 800,
+    height: 600,
+    resizable: true  //do not allow resizing of window- keep on for dev purposes
+
+  })
 
   // and load the index.html of the app.
   mainWindow.loadURL(url.format({
@@ -39,6 +45,13 @@ function createWindow () {
 // initialization and is ready to create browser windows.
 // Some APIs can only be used after this event occurs.
 app.on('ready', createWindow)
+
+
+//---- Request Hanlders- uses Express -----
+//removed for now- come back to
+
+
+
 
 // Quit when all windows are closed.
 app.on('window-all-closed', function () {
