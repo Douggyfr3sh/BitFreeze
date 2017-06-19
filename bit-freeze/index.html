@@ -16,6 +16,9 @@
     <!-- Include our angular controller JS file -->
     <script type="text/javascript" src="lib/scripts/Components/appController.js"></script>
 
+    <!-- Include print.js library for printing keys -->
+   <script src="node_modules/print.js/dist/print.min.js"></script>
+
     <title>BitFreeze</title>
   </head>
   <body>
@@ -43,12 +46,12 @@
         and Electron <script>document.write(process.versions.electron)</script>.
 
         <br>
-        <button type="button" class="btn btn-lg btn-primary btc-btn-generate" ng-click="appName = 'geez'">Generate New Wallet
+        <button type="button" class="btn btn-lg btn-primary btc-btn-generate" ng-click="genWallet($event)">Generate New Wallet
         </button>
 
 
         <!-- Output Panel: show new wallet results here. -->
-        <div class="panel panel-default">
+        <div class="panel panel-default" id="pjs-target">
           <div class="panel-heading">
             <h3 class="panel-title">New Wallet Details:</h3>
             <!-- Display some data from our controller -->
