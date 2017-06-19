@@ -12,13 +12,15 @@
     and Electron <script>document.write(process.versions.electron)</script>.
 
     <br>
-    <form type='POST' action='/newWallet'>
-      <input type='submit' value='GENERATE NEW WALLET'>
-    </form>
+    <button type="button" class="btn btn-lg btn-danger btc-btn-generate">Generate New Wallet</button>
   </body>
 
+
+  <!-- Require other files to be included -->
   <script>
-    // You can also require other files to run in this process
+  //Must load jQuery in this special manner for use with Electron:
+    window.$ = window.jQuery = require('jquery');
+    require('bootstrap')
     require('./renderer.js')
     require('./lib/walletGenerator.js')
   </script>
