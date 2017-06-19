@@ -10,47 +10,58 @@
     <!-- Include Angular JS files -->
     <script type="text/javascript" src="./node_modules/angular/angular.min.js"></script>
 
-    <!-- Index.js handles Angular bootstrapping -->
+    <!-- Index.js handles Angular setup -->
     <script type="text/javascript" src="lib/scripts/index.js"></script>
+
+    <!-- Include our angular controller JS file -->
+    <script type="text/javascript" src="lib/scripts/Components/appController.js"></script>
 
     <title>BitFreeze</title>
   </head>
   <body>
-    <nav class="navbar navbar-inverse">
-      <div class="navbar-header">
-          <div>
-            <span class="glyphicon glyphicon-bitcoin" aria-hidden="true">
-            </span>
+  <!-- This directive should auto-bootstrap angular. -->
+    <div ng-app="ngBitFreeze">
+      <!-- Our Angular controller element wraps rest of page -->
+      <div ng-controller="AppController">
+
+        <!-- Navbar -->
+        <nav class="navbar navbar-inverse">
+          <div class="navbar-header">
+              <div>
+                <span class="glyphicon glyphicon-bitcoin" aria-hidden="true">
+                </span>
+              </div>
+              <div>
+                <h1>{{appName}}</h1>
+              </div>
+            </div>
+        </nav>
+
+        <!-- All of the Node.js APIs are available in this renderer process. -->
+        We are using Node.js <script>document.write(process.versions.node)</script>,
+        Chromium <script>document.write(process.versions.chrome)</script>,
+        and Electron <script>document.write(process.versions.electron)</script>.
+
+        <br>
+        <button type="button" class="btn btn-lg btn-primary btc-btn-generate" ng-click="appName = 'geez'">Generate New Wallet
+        </button>
+
+
+        <!-- Output Panel: show new wallet results here. -->
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h3 class="panel-title">New Wallet Details:</h3>
+            <!-- Display some data from our controller -->
           </div>
-          <div>
-            <h1>BitFreeze</h1>
+          <div class="panel-body">
+            <ul class="list-group">
+              <li class="list-group-item btc-public-key">Public Key:</li>
+              <li class="list-group-item btc-private-key">Private Key:</li>
+            </ul>
           </div>
         </div>
       </div>
-    </nav>
-    <!-- All of the Node.js APIs are available in this renderer process. -->
-    We are using Node.js <script>document.write(process.versions.node)</script>,
-    Chromium <script>document.write(process.versions.chrome)</script>,
-    and Electron <script>document.write(process.versions.electron)</script>.
-
-    <br>
-    <button type="button" class="btn btn-lg btn-primary btc-btn-generate">Generate New Wallet
-    </button>
-
-
-    <!-- Output Panel: show new wallet results here. -->
-    <div class="panel panel-default">
-      <div class="panel-heading">
-        <h3 class="panel-title">New Wallet Details:</h3>
-      </div>
-      <div class="panel-body">
-        <ul class="list-group">
-          <li class="list-group-item btc-public-key">Public Key:</li>
-          <li class="list-group-item btc-private-key">Private Key:</li>
-        </ul>
-      </div>
     </div>
-
   </body>
 
 
