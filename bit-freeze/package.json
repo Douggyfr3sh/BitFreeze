@@ -25,6 +25,7 @@
     "bootstrap": "^3.3.7",
     "express": "^4.15.3",
     "jquery": "^3.2.1",
+    "node-key-sender": "^1.0.9",
     "print.js": "^1.0.18",
     "qr-image": "^3.2.0",
     "underscore": "^1.8.3"

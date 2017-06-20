@@ -50,12 +50,16 @@
 
         <input type="text" class="form-control btc-new-name" placeholder="Wallet Name" aria-describedby="basic-addon1">
 
-        <button type="button" class="btn btn-lg btn-primary btc-btn-generate" ng-click="genWallet($event)">Generate New Wallet
-        </button>
+        <div class="btn-group btc-btn-group" role="group" aria-label="...">
+          <button type="button" class="btn btn-md btn-primary btc-btn-generate" ng-click="genWallet($event)">Generate New Wallet
+          </button>
 
+          <button type="button" class="btn btn-md btn-primary btc-btn-print" ng-click="printWallet($event)">Print Wallet Details
+          </button>
+        </div>
 
         <!-- Output Panels: show new wallet results here. -->
-        <div id="pjs-target">
+        <div class="container" id="pjs-target">
           <h3 class="btc-wallet-name">Wallet Name:</h3>
           <div class="panel panel-success">
             <div class="panel-heading">
