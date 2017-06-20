@@ -46,9 +46,21 @@
             </div>
         </nav>
 
-        <!-- All of the Node.js APIs are available in this renderer process. -->
-        <button type="button" class="btn btn-sm btn-success btc-btn-charts" ng-click="getCharts($event)"><span class="glyphicon glyphicon-bitcoin" aria-hidden="true"></span>Charts
-        </button>
+        <!-- All of the Node.js APIs are available in this  renderer process. -->
+        <div class="panel panel-default">
+          <div class="panel-heading">Current Bitcoin Value</div>
+          <div class="panel-body">
+            <p>
+              <span class="label label-default">USD:</span>
+              Last: {{btcValue.usd.last}} Buy: {{btcValue.usd.buy}} Sell: {{btcValue.usd.sell}}
+              <br>
+              <span class="label label-default">JPY:</span>
+
+最終: {{btcValue.jpy.last}}
+購入: {{btcValue.jpy.buy}} 売る: {{btcValue.jpy.sell}}
+            </p>
+          </div>
+        </div>
 
         <input type="text" class="form-control btc-new-name" placeholder="Wallet Name" aria-describedby="basic-addon1">
 

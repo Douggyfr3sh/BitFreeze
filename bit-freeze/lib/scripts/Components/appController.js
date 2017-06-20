@@ -7,7 +7,70 @@ const request = require('request')
 angular.module('ngBitFreeze', [])
 
 .controller ('AppController', ['$scope', function($scope) {
-  $scope.appName= 'BitFreeze';
+  $scope.appName = 'BitFreeze';
+  $scope.btcValue = {
+    usd: {last: 'loading', buy: 'loading', sell: 'loading' },
+    jpy: {last: 'お待ちください', buy: 'お待ちください', sell: 'お待ちください' }
+  };
+
+  //update prices once on load
+  request('https://blockchain.info/ticker', (err, res, body) => {
+    if (err) {
+      console.log('error getting blockchain price data: ', err);
+    }
+    //set price data on controller
+    var priceData = JSON.parse(body);
+
+    $scope.btcValue.usd = {
+      last: priceData.USD.last,
+      buy: priceData.USD.buy,
+      sell: priceData.USD.sell
+    };
+
+    $scope.btcValue.jpy = {
+      last: priceData.JPY.last,
+      buy: priceData.JPY.buy,
+      sell: priceData.JPY.sell
+    };
+
+    console.log($scope);
+
+    //Must call apply to digest changes since we are inside another scope
+    //see: https://stackoverflow.com/questions/20070077/angularjs-view-not-updating-on-model-change
+    $scope.$apply();
+
+  });
+
+
+  //refresh btc values on an interval
+  setInterval(() => {
+    request('https://blockchain.info/ticker', (err, res, body) => {
+      if (err) {
+        console.log('error getting blockchain price data: ', err);
+      }
+      //set price data on controller
+      var priceData = JSON.parse(body);
+
+      $scope.btcValue.usd = {
+        last: priceData.USD.last,
+        buy: priceData.USD.buy,
+        sell: priceData.USD.sell
+      };
+
+      $scope.btcValue.jpy = {
+        last: priceData.JPY.last,
+        buy: priceData.JPY.buy,
+        sell: priceData.JPY.sell
+      };
+
+      console.log($scope);
+
+      //Must call apply to digest changes since we are inside another scope
+      //see: https://stackoverflow.com/questions/20070077/angularjs-view-not-updating-on-model-change
+      $scope.$apply();
+
+    });
+  }, 20000);
 
   $scope.genWallet = function (e) {
     //Generate new Bitcoin K/V pair
@@ -40,17 +103,5 @@ angular.module('ngBitFreeze', [])
     printJS('pjs-target', 'html');
   };
 
-  //This works!!! getting data
-  $scope.getCharts = function (e) {
-    //send GET request to blockchain API to get price charts
-    console.log('charts got??');
-    request('https://blockchain.info/ticker', (err, res, body) => {
-      if (err) {
-        console.log('error getting blockchain price data: ', err);
-      }
-
-      console.log('body: ', body);
-    });
-  };
 
 }])
