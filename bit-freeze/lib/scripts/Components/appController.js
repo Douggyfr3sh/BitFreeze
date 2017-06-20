@@ -14,6 +14,7 @@ angular.module('ngBitFreeze', [])
     let private = newWallet.toWIF();
 
     //generate QR codes
+    //for reference: https://davidshimjs.github.io/qrcodejs/
     var qrCodePub = new QRCode('qrcode-public');
     qrCodePub.makeCode(public);
 

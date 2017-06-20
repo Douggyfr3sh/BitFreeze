@@ -26,29 +26,28 @@
   </head>
   <body>
   <!-- This directive should auto-bootstrap angular. -->
-    <div ng-app="ngBitFreeze">
+    <div ng-app="ngBitFreeze" class="container-fluid">
       <!-- Our Angular controller element wraps rest of page -->
       <div ng-controller="AppController">
 
         <!-- Navbar -->
         <nav class="navbar navbar-inverse">
           <div class="navbar-header">
-              <div>
+            <!--   <div>
                 <span class="glyphicon glyphicon-bitcoin" aria-hidden="true">
                 </span>
-              </div>
+              </div> -->
               <div>
-                <h1>{{appName}}</h1>
+                <h1 class='nav-appname'>
+                  <span class="glyphicon glyphicon-bitcoin" aria-hidden="true"></span>
+                  {{appName}}
+                </h1>
               </div>
             </div>
         </nav>
 
         <!-- All of the Node.js APIs are available in this renderer process. -->
-        We are using Node.js <script>document.write(process.versions.node)</script>,
-        Chromium <script>document.write(process.versions.chrome)</script>,
-        and Electron <script>document.write(process.versions.electron)</script>.
 
-        <br>
         <button type="button" class="btn btn-lg btn-primary btc-btn-generate" ng-click="genWallet($event)">Generate New Wallet
         </button>
 

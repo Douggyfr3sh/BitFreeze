@@ -4,3 +4,18 @@
   margin-top:15px;
   margin-bottom: 15px;
 }
+
+.nav-appname {
+  /*use same color as bootstrap btn-primary
+  (refactor to set to variable with SASS if time allows)*/
+  color: #337ab7;
+}
+
+.glyphicon-bitcoin {
+  color: gold;
+}
+
+.btn {
+  display: block;
+  margin: auto;
+}
