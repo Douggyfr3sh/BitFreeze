@@ -1,4 +1,5 @@
 const BTC = require('bitcoinjs-lib')
+//const qr = require('qr-image')
 // const print = require('../../../node_modules/print.js/dist/print.min.js')
 
 angular.module('ngBitFreeze', [])
@@ -13,6 +14,23 @@ angular.module('ngBitFreeze', [])
     let private = newWallet.toWIF();
 
     //generate QR codes
+    var qrCodePub = new QRCode('qrcode-public');
+    qrCodePub.makeCode(public);
+
+    var qrCodePrivate = new QRCode('qrcode-private');
+    qrCodePrivate.makeCode(private);
+
+    //old NPM libary code
+    // var pub_qr = qr.image(public);
+    // var priv_qr = qr.image(private);
+
+
+
+    //append address data to app before printing
+    $('.btc-public-key').text(public);
+    $('.btc-private-key').text(private);
+
+    //TODO: append QR code
 
 
     //print new k/v pair (working!)

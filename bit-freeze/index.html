@@ -7,6 +7,9 @@
     <!-- Include bootstrap CSS -->
     <link href="node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
 
+    <!-- Include custom CSS  -->
+    <link rel="stylesheet" type="text/css" href="style.css">
+
     <!-- Include Angular JS files -->
     <script type="text/javascript" src="./node_modules/angular/angular.min.js"></script>
 
@@ -53,13 +56,23 @@
         <!-- Output Panel: show new wallet results here. -->
         <div class="panel panel-default" id="pjs-target">
           <div class="panel-heading">
-            <h3 class="panel-title">New Wallet Details:</h3>
+            <h1 class="panel-title">New Wallet Details:</h1>
             <!-- Display some data from our controller -->
           </div>
           <div class="panel-body">
             <ul class="list-group">
-              <li class="list-group-item btc-public-key">Public Key:</li>
-              <li class="list-group-item btc-private-key">Private Key:</li>
+              <li class="list-group-item">
+                <h5 class="btc-public-key">Public Key:</h5>
+                <div id="qrcode-public">
+
+                </div>
+              </li>
+              <li class="list-group-item">
+                <h5 class="btc-private-key">Private Key:</h5>
+                <div id="qrcode-private">
+
+                </div>
+              </li>
             </ul>
           </div>
         </div>
@@ -72,6 +85,9 @@
   <script>
     window.$ = window.jQuery = require('./node_modules/jquery/dist/jquery.min.js');
   </script>
+
+  <!-- QR code library -->
+  <script src="lib/scripts/qrcode.min.js"></script>
 
   <!-- Require bootstrap with specific path for electron -->
   <script src="./node_modules/bootstrap/dist/js/bootstrap.min.js">
