@@ -1,4 +1,5 @@
 const BTC = require('bitcoinjs-lib')
+const request = require('request')
 //const ks = require('node-key-sender')
 //const qr = require('qr-image')
 // const print = require('../../../node_modules/print.js/dist/print.min.js')
@@ -39,9 +40,17 @@ angular.module('ngBitFreeze', [])
     printJS('pjs-target', 'html');
   };
 
+  //This works!!! getting data
   $scope.getCharts = function (e) {
     //send GET request to blockchain API to get price charts
     console.log('charts got??');
+    request('https://blockchain.info/ticker', (err, res, body) => {
+      if (err) {
+        console.log('error getting blockchain price data: ', err);
+      }
+
+      console.log('body: ', body);
+    });
   };
 
 }])
