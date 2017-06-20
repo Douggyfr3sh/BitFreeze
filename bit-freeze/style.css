@@ -20,6 +20,11 @@
   background: yellow;
 }
 
+#cash-value {
+  /*Use same color as Bootstrap success panel text*/
+  color: #3C763D;
+}
+
 /*.btc-btn-group {
   display: block;
   margin: auto;
