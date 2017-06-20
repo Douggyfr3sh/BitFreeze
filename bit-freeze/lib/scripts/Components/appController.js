@@ -21,15 +21,42 @@ angular.module('ngBitFreeze', [])
     var qrCodePrivate = new QRCode('qrcode-private');
     qrCodePrivate.makeCode(private);
 
-    //old NPM libary code
-    // var pub_qr = qr.image(public);
-    // var priv_qr = qr.image(private);
+    //get data from input
+    var walletName = $('.btc-new-name')[0].value;
 
+    //generate HTML template to add to DOM
+    var docTemplate = `
+      <div class="panel-heading">
+        <h1 class="panel-title">{{walletName + ' Details:'}}</h1>
+        <!-- Display some data from our controller -->
+      </div>
+      <div class="panel-body">
+        <ul class="list-group">
+          <li class="list-group-item">
+            <h5 class="btc-public-key">{{'Public Key: ' + public}}</h5>
+            <div id="qrcode-public">
+
+            </div>
+          </li>
+          <li class="list-group-item">
+            <h5 class="btc-private-key">Private Key:</h5>
+            <div id="qrcode-private">
+
+            </div>
+          </li>
+        </ul>
+      </div>
+
+
+    `;
+
+    //TODO: use doc template for rendering instead of code below:
 
 
     //append address data to app before printing
-    $('.btc-public-key').text(public);
-    $('.btc-private-key').text(private);
+    $('.btc-public-key').text('Public Key: ' + public);
+    $('.btc-private-key').text('Private Key: ' + private + ' DO NOT SHARE THIS!!!');
+    $('.btc-wallet-name').text('Wallet- ' + walletName + ' details:');
 
     //TODO: append QR code
 

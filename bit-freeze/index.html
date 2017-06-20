@@ -48,33 +48,42 @@
 
         <!-- All of the Node.js APIs are available in this renderer process. -->
 
+        <input type="text" class="form-control btc-new-name" placeholder="Wallet Name" aria-describedby="basic-addon1">
+
         <button type="button" class="btn btn-lg btn-primary btc-btn-generate" ng-click="genWallet($event)">Generate New Wallet
         </button>
 
 
-        <!-- Output Panel: show new wallet results here. -->
-        <div class="panel panel-default" id="pjs-target">
-          <div class="panel-heading">
-            <h1 class="panel-title">New Wallet Details:</h1>
-            <!-- Display some data from our controller -->
-          </div>
-          <div class="panel-body">
-            <ul class="list-group">
-              <li class="list-group-item">
-                <h5 class="btc-public-key">Public Key:</h5>
-                <div id="qrcode-public">
+        <!-- Output Panels: show new wallet results here. -->
+        <div id="pjs-target">
+          <h3 class="btc-wallet-name">Wallet Name:</h3>
+          <div class="panel panel-success">
+            <div class="panel-heading">
+              <h1 class="panel-title btc-public-key">Public Key:</h1>
+              <!-- Display some data from our controller -->
+            </div>
+            <div class="panel-body">
+              <div id="qrcode-public">
 
-                </div>
-              </li>
-              <li class="list-group-item">
-                <h5 class="btc-private-key">Private Key:</h5>
-                <div id="qrcode-private">
-
-                </div>
-              </li>
-            </ul>
+              </div>
+            </div>
           </div>
+
+          <div class="panel panel-danger">
+            <div class="panel-heading">
+              <h1 class="panel-title btc-private-key">Private Key: (DO NOT SHARE!!!)</h1>
+              <!-- Display some data from our controller -->
+            </div>
+            <div class="panel-body">
+              <div id="qrcode-private">
+
+              </div>
+            </div>
+          </div>
+
         </div>
+
+
       </div>
     </div>
   </body>
