@@ -80,7 +80,8 @@ angular.module('ngBitFreeze', [])
     });
   }, 20000);
 
-  $scope.genWallet = function (e) {
+  //Deprecated- use if a generate wallet button is added
+  $scope._genWallet = function (e) {
     //Generate new Bitcoin K/V pair
     let newWallet = BTC.ECPair.makeRandom();
     let public = newWallet.getAddress();
@@ -108,6 +109,44 @@ angular.module('ngBitFreeze', [])
     $('.btc-public-key').text('Public Key: ' + public);
     $('.btc-private-key').text('Private Key: ' + private);
     $('.btc-wallet-name').text('Wallet- ' + walletName + ' details:');
+
+  };
+
+  $scope.genWalletKeypress = function (e) {
+    //Generate new Bitcoin K/V pair
+    if (e.key === "Enter") {
+      //Generate new Bitcoin K/V pair
+      let newWallet = BTC.ECPair.makeRandom();
+      let public = newWallet.getAddress();
+      let private = newWallet.toWIF();
+
+      //Remove old QR codes before creating new ones:
+      $('#qrcode-public').html('');
+      $('#qrcode-private').html('');
+
+
+      //generate QR codes
+      //for reference: https://davidshimjs.github.io/qrcodejs/
+      var qrCodePub = new QRCode('qrcode-public');
+      qrCodePub.makeCode(public);
+
+      var qrCodePrivate = new QRCode('qrcode-private');
+      qrCodePrivate.makeCode(private);
+
+      //get data from input
+      var walletName = $('.btc-new-name')[0].value;
+
+      //TODO: use doc template for rendering instead of code below:
+
+      //append address data to app before printing
+      $('.btc-public-key').text('Public Key: ' + public);
+      $('.btc-private-key').text('Private Key: ' + private);
+      $('.btc-wallet-name').text('Wallet- ' + walletName + ' details:');
+
+      //empty input
+      $('.btc-new-name').val('');
+    }
+
 
   };
 

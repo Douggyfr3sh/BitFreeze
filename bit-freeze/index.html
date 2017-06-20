@@ -39,7 +39,7 @@
               </div> -->
               <div>
                 <h1 class='nav-appname text-center'>
-                  <span class="glyphicon glyphicon-bitcoin" aria-hidden="true"></span>
+                  <span class="glyphicon glyphicon-bitcoin btc-logo" aria-hidden="true"></span>
                   {{appName}}
                 </h1>
               </div>
@@ -67,11 +67,10 @@
 
         <!-- Refactor form to use bootstrap input group -->
         <div class="input-group">
-          <span class="input-group-btn">
-            <button type="button" class="btn btn-md btn-primary btc-btn-generate" ng-click="genWallet($event)">Generate New Wallet
-            </button>
+          <span class="input-group-addon">
+            <span class="glyphicon glyphicon-bitcoin" aria-hidden="true"></span>
           </span>
-          <input type="text" class="form-control btc-new-name" placeholder="Wallet Name" aria-describedby="basic-addon1">
+          <input type="text" class="form-control btc-new-name" placeholder="Wallet Name" aria-describedby="basic-addon1" ng-keypress="genWalletKeypress($event)">
           <span class="input-group-btn">
             <button type="button" class="btn btn-md btn-default btc-btn-print" ng-click="printWallet($event)">Print Wallet Details
             </button>
