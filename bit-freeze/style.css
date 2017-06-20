@@ -15,6 +15,11 @@
   color: gold;
 }
 
+.prices-updated {
+  font-style: bold;
+  background: yellow;
+}
+
 /*.btc-btn-group {
   display: block;
   margin: auto;

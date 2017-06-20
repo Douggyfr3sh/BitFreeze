@@ -69,6 +69,14 @@ angular.module('ngBitFreeze', [])
       //see: https://stackoverflow.com/questions/20070077/angularjs-view-not-updating-on-model-change
       $scope.$apply();
 
+
+      //Manually animate prices on update to show change
+      //Highlight prices w/ yellow BG and bold text for 1s
+      $('.dynamic-prices').toggleClass('prices-updated');
+      setTimeout(() => {
+        $('.dynamic-prices').toggleClass('prices-updated');
+      }, 1000);
+
     });
   }, 20000);
 

@@ -50,14 +50,17 @@
         <div class="panel panel-default">
           <div class="panel-heading">Current Bitcoin Value</div>
           <div class="panel-body">
-            <p>
+            <p class="dynamic-prices">
               <span class="label label-default">USD:</span>
-              Last: {{btcValue.usd.last}} Buy: {{btcValue.usd.buy}} Sell: {{btcValue.usd.sell}}
+              Last: ${{btcValue.usd.last}} Buy: ${{btcValue.usd.buy}} Sell: ${{btcValue.usd.sell}}
               <br>
               <span class="label label-default">JPY:</span>
 
-最終: {{btcValue.jpy.last}}
-購入: {{btcValue.jpy.buy}} 売る: {{btcValue.jpy.sell}}
+最終: ¥{{btcValue.jpy.last}}
+購入: ¥{{btcValue.jpy.buy}} 売る: ¥{{btcValue.jpy.sell}}
+            </p>
+            <p>
+              <i>Price data from blockchain.info.</i>
             </p>
           </div>
         </div>
@@ -78,7 +81,6 @@
           <div class="panel panel-success">
             <div class="panel-heading">
               <h1 class="panel-title btc-public-key">Public Key:</h1>
-              <!-- Display some data from our controller -->
             </div>
             <div class="panel-body">
               <div id="qrcode-public">
@@ -90,7 +92,6 @@
           <div class="panel panel-danger">
             <div class="panel-heading">
               <h1 class="panel-title btc-private-key">Private Key: (DO NOT SHARE!!!)</h1>
-              <!-- Display some data from our controller -->
             </div>
             <div class="panel-body">
               <div id="qrcode-private">
