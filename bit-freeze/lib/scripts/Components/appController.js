@@ -39,4 +39,9 @@ angular.module('ngBitFreeze', [])
     printJS('pjs-target', 'html');
   };
 
+  $scope.getCharts = function (e) {
+    //send GET request to blockchain API to get price charts
+    console.log('charts got??');
+  };
+
 }])
