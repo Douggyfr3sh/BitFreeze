@@ -78,6 +78,11 @@ angular.module('ngBitFreeze', [])
     let public = newWallet.getAddress();
     let private = newWallet.toWIF();
 
+    //Remove old QR codes before creating new ones:
+    $('#qrcode-public').html('');
+    $('#qrcode-private').html('');
+
+
     //generate QR codes
     //for reference: https://davidshimjs.github.io/qrcodejs/
     var qrCodePub = new QRCode('qrcode-public');
