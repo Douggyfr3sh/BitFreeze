@@ -7,7 +7,39 @@ const request = require('request')
 angular.module('ngBitFreeze', [])
 
 .controller ('AppController', ['$scope', function($scope) {
-  $scope.appName= 'BitFreeze';
+  $scope.appName = 'BitFreeze';
+  $scope.btcValue = {
+    usd: {last: 'loading', buy: 'loading', sell: 'loading' },
+    jpy: {last: 'お待ちください', buy: 'お待ちください', sell: 'お待ちください' }
+  };
+
+  //refresh btc values on an interval
+  setInterval(() => {
+    request('https://blockchain.info/ticker', (err, res, body) => {
+      if (err) {
+        console.log('error getting blockchain price data: ', err);
+      }
+      //set price data on controller
+      var priceData = JSON.parse(body);
+
+      $scope.btcValue.usd = {
+        last: priceData.USD.last,
+        buy: priceData.USD.buy,
+        sell: priceData.USD.sell
+      };
+
+      $scope.btcValue.jpy = {
+        last: priceData.JPY.last,
+        buy: priceData.JPY.buy,
+        sell: priceData.JPY.sell
+      };
+
+      console.log($scope);
+
+      $scope.$apply();
+
+    });
+  }, 10000);
 
   $scope.genWallet = function (e) {
     //Generate new Bitcoin K/V pair
