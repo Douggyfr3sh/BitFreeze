@@ -150,6 +150,17 @@ angular.module('ngBitFreeze', [])
 
   };
 
+  $scope.walletQueryKeypress = function (e) {
+    if (e.key === "Enter") {
+      //request data from Blockchain API
+
+      //TODO: implement later
+
+    }
+
+
+  };
+
   $scope.printWallet = function (e) {
     //print new k/v pair (working!)
     printJS('pjs-target', 'html');
